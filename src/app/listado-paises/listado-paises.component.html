@@ -1,21 +1,24 @@
-
-<h2>Países</h2>
+<h2>
+  Países</h2>
 
 <button (click)="ordenaPaises()">Ordenar</button>
-Población <input type="text" (input)="onChange($event)" />
-Nombre: <input type="text" #filtro (keyup)="0" />
+Población
+<input type="text" (input)="onChange($event)" /> Nombre:
+<input type="text" #filtro (keyup)="0" />
 <div *ngFor="let pais of paises| paisPorNombre:filtro.value">
-    <p>ID: {{pais.id}}</p>
-    <img style="margin-right:10px; width : 200px;" src="assets/{{pais.imagen}}">
-    <p>País: {{pais.nombre}}</p>
-    <p> Población: {{pais.poblacion}}</p>
-    <p>URL:<a href="{{pais.url}}" target="_blank">{{pais.url}}</a></p>
-    <div class="info" *ngIf="mostrarInformacion" >
-      <p>
-        Información: {{pais.desc}}
-      </p>
-      <button  *ngIf="mostrarInformacion" (click)="mostrarInfo(pais)">Ocultar Información</button>
-    </div>
-    <button *ngIf="!mostrarInformacion" (click)="mostrarInfo(pais)">Mostrar Información</button>
+  <p>ID: {{pais.id}}</p>
+  <img style="margin-right:10px; width : 200px;" src="assets/{{pais.imagen}}">
+  <p>País: {{pais.nombre}}</p>
+  <p> Población: {{pais.poblacion}}</p>
+  <p>URL:
+    <a href="{{pais.url}}" target="_blank">{{pais.url}}</a>
+  </p>
+  <div class="info" *ngIf="mostrarInformacion">
+    <p>
+      Información: {{pais.desc}}
+    </p>
+    <button *ngIf="mostrarInformacion" (click)="mostrarInfo(pais)">Ocultar Información</button>
+  </div>
+  <button *ngIf="!mostrarInformacion" (click)="mostrarInfo(pais)">Mostrar Información</button>
 </div>
 <app-paises-form (nuevoPais)=anadirPais($event)></app-paises-form>
